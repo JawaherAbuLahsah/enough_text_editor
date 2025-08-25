@@ -6,19 +6,19 @@ import 'base.dart';
 
 /// HTML editor controls to be used within a sliver-based view, e.g. a `CustomScrollView`.
 class SliverHeaderTextEditorControls extends StatelessWidget {
-  final GlobalKey<TextEditorState>? editorKey;
-  final TextEditorApi? editorApi;
-  final Widget? prefix;
-  final Widget? suffix;
-
+  /// Creates a [SliverHeaderTextEditorControls] widget.
   const SliverHeaderTextEditorControls({
-    Key? key,
+    super.key,
     this.editorKey,
     this.editorApi,
     this.prefix,
     this.suffix,
-  })  : assert(editorKey != null || editorApi != null),
-        super(key: key);
+  }) : assert(editorKey != null || editorApi != null);
+
+  final GlobalKey<TextEditorState>? editorKey;
+  final TextEditorApi? editorApi;
+  final Widget? prefix;
+  final Widget? suffix;
 
   @override
   Widget build(BuildContext context) {
