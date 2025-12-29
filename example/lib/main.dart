@@ -7,7 +7,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 
 /// Example how to use the simplified [PackagedTextEditor] that combines the default controls and the editor.
 class EditorPage extends StatefulWidget {
-  const EditorPage({super.key});
+  const EditorPage({Key? key}) : super(key: key);
 
   @override
   State<EditorPage> createState() => _EditorPageState();
@@ -116,7 +116,7 @@ class _EditorPageState extends State<EditorPage> {
 
 /// Example how to use editor within a a CustomScrollView
 class CustomScrollEditorPage extends StatefulWidget {
-  const CustomScrollEditorPage({super.key});
+  const CustomScrollEditorPage({Key? key}) : super(key: key);
 
   @override
   State<CustomScrollEditorPage> createState() => _CustomScrollEditorPageState();
@@ -128,46 +128,40 @@ class _CustomScrollEditorPageState extends State<CustomScrollEditorPage> {
 
   @override
   Widget build(BuildContext context) {
-    final sendAction = DensePlatformIconButton(
-      icon: const Icon(Icons.send),
-      onPressed: () {
-        final text = _editorApi!.getText();
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => ResultScreen(text: text),
-          ),
-        );
-      },
-    );
-    final secondEditorAction = DensePlatformIconButton(
-      icon: const Icon(Icons.looks_one),
-      onPressed: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const EditorPage(),
-          ),
-        );
-      },
-    );
     return PlatformScaffold(
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
           PlatformSliverAppBar(
             title: const Text('Sticky controls'),
-            material: (_, __) => MaterialSliverAppBarData(
-              floating: false,
-              pinned: true,
-              stretch: true,
-              actions: [
-                sendAction,
-                secondEditorAction,
-              ],
-            ),
-            cupertino: (_, __) => CupertinoSliverAppBarData(
-              leading: secondEditorAction,
-              trailing: sendAction,
-            ),
+            // floating: false,
+            // pinned: true,
+            stretch: true,
+         
+            // actions: [
+            //   DensePlatformIconButton(
+            //     icon: const Icon(Icons.send),
+            //     onPressed: () {
+            //       final text = _editorApi!.getText();
+            //       Navigator.of(context).push(
+            //         MaterialPageRoute(
+            //           builder: (context) => ResultScreen(text: text),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            //   DensePlatformIconButton(
+            //     icon: const Icon(Icons.looks_one),
+            //     onPressed: () {
+            //       Navigator.of(context).push(
+            //         MaterialPageRoute(
+            //           builder: (context) => const EditorPage(),
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ],
+        
           ),
           const SliverToBoxAdapter(
             child: Padding(
@@ -227,7 +221,7 @@ class _CustomScrollEditorPageState extends State<CustomScrollEditorPage> {
 
 class ResultScreen extends StatelessWidget {
   final String text;
-  const ResultScreen({super.key, required this.text});
+  const ResultScreen({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

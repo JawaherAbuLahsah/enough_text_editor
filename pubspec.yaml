@@ -1,27 +1,28 @@
 name: enough_text_editor
 description: A plain text editor for Flutter that support unicode text formatting for Western characters.
-version: 0.1.1
+version: 0.1.0
 homepage: https://github.com/Enough-Software/enough_text_editor
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.27.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  enough_platform_widgets: ^1.1.2
-  enough_ascii_art: ^1.1.2
+  # enough_platform_widgets: ^1.1.2
+  # enough_ascii_art: ^1.1.2
 
 dependency_overrides:
-  # enough_platform_widgets:
-  #   git:
-  #     url: https://github.com/Enough-Software/enough_platform_widgets.git      
-    #path: ../enough_platform_widgets
-  # enough_ascii_art:
-  #   git:
-  #     url: https://github.com/Enough-Software/enough_ascii_art.git
-    # path: ../enough_ascii_art
+  enough_platform_widgets:
+    git:
+      url: https://github.com/JawaherAbuLahsah/enough_platform_widgets.git      
+      # path: ../enough_platform_widgets
+  
+  enough_ascii_art:
+    git:
+      url: https://github.com/Enough-Software/enough_ascii_art.git
+      # path: ../enough_ascii_art
 
 dev_dependencies:
   flutter_test:
